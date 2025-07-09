@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cynthia y Fer 💖</title>
+</head>
+<body>
+    <h1>💘 Cynthia y Fer 💘</h1>
+    <form method="post">
+        {% for i, q in enumerate(questions) %}
+            <h3>{{ q.question }}</h3>
+            {% for option in q.options %}
+                <label>
+                    <input type="radio" name="q{{ i }}" value="{{ option }}" required> {{ option }}
+                </label><br>
+            {% endfor %}
+            <br>
+        {% endfor %}
+        <button type="submit">Enviar respuestas</button>
+    </form>
+</body>
+</html>
