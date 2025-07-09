@@ -6,8 +6,8 @@ app = Flask(__name__)
 questions = [
     {
         "question": "¿Dónde fue nuestra primer cita?",
-        "options": ["Cine", "Yaqui", "Parque", "Banco"],
-        "answer": "Yaqui"
+        "options": ["Cine", "El Yaqui", "Parque", "Banco"],
+        "answer": "El Yaqui"
     },
     {
         "question": "¿Cuál fue nuestra primer película?",
