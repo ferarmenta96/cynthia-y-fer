@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -6,8 +5,8 @@ app = Flask(__name__)
 questions = [
     {
         "question": "¿Dónde fue nuestra primer cita?",
-        "options": ["Cine", "El Yaqui", "Parque", "Banco"],
-        "answer": "El Yaqui"
+        "options": ["Cine", "Yaqui", "Parque", "Banco"],
+        "answer": "Yaqui"
     },
     {
         "question": "¿Cuál fue nuestra primer película?",
