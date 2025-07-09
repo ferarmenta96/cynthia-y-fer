@@ -1,8 +1,0 @@
-
-services:
-  - type: web
-    name: cynthia-y-fer
-    env: python
-    plan: free
-    buildCommand: ""
-    startCommand: python3 app.py
