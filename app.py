@@ -5,12 +5,12 @@ app.secret_key = 'cynthia-y-fer'
 
 questions = [
     {
-        "question": "¿Dónde fue nuestra primer cita?",
-        "options": ["Cine", "Yaqui", "Parque", "Banco"],
-        "answer": "Yaqui"
+        "question": "¿En qué mes fue nuestra primer cita?",
+        "options": ["Enero", "Agosto", "Diciembre", "Noviembre"],
+        "answer": "Noviembre"
     },
     {
-        "question": "¿Cuál fue nuestra primer película?",
+        "question": "¿Cual fue nuestra primer película?",
         "options": ["Titanic", "Heretic", "Avengers", "Coco"],
         "answer": "Heretic"
     },

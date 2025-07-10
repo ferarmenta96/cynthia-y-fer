@@ -3,15 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Resultado 💝</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Segoe UI', sans-serif;
+            background-image: url('https://i.imgur.com/fI0nL0X.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px;
+            color: #4e0034;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            display: inline-block;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            max-width: 700px;
+        }
+        h1 {
+            color: #c2185b;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    <h1>¡Resultado del Quiz Romántico!</h1>
-    <p>Obtuviste {{ score }} de {{ total }} respuestas correctas.</p>
+    <div class="card">
+        <h1>¡Resultado del Quiz Romántico!</h1>
+        <p>Obtuviste {{ score }} de {{ total }} respuestas correctas.</p>
 
-    <h2>Mi amor:</h2>
-    <p>
-        Eres el amor de mi vida. Todo lo que soy —mi mente, mi inteligencia, mi corazón—<br>
-        es y será siempre tuyo. Gracias por existir, por amarme y por ser tú. ❤️
-    </p>
+        <h2>Mi amor:</h2>
+        <p>
+            Eres el amor de mi vida. Todo lo que soy —mi mente, mi inteligencia, mi corazón—<br>
+            es y será siempre tuyo. Gracias por existir, por amarme y por ser tú. ❤️
+        </p>
+    </div>
 </body>
 </html>

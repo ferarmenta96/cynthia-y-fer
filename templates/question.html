@@ -3,6 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Pregunta {{ qnum }} de {{ total }}</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 50px;
+            background-image: url('https://i.imgur.com/6oK9G4o.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #4e0034;
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
+            display: inline-block;
+            text-align: left;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+        h2, h3 {
+            text-align: center;
+        }
+        label {
+            font-size: 18px;
+        }
+        button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 25px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: none;
+            background-color: #ec407a;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d81b60;
+        }
+    </style>
 </head>
 <body>
     <h2>Pregunta {{ qnum }} de {{ total }}</h2>
@@ -11,11 +50,9 @@
         {% for option in question.options %}
             <label>
                 <input type="radio" name="answer" value="{{ option }}" required> {{ option }}
-            </label><br>
+            </label><br><br>
         {% endfor %}
-        <br>
         <button type="submit">Siguiente</button>
     </form>
 </body>
 </html>
-
