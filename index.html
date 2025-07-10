@@ -1,0 +1,98 @@
+<!-- index.html - Nuestra Historia Interactiva: Fer & Cynthia -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fer & Cynthia: Nuestra Historia 💖</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <div id="scene">
+      <p id="text"></p>
+      <div id="choices" class="choices"></div>
+    </div>
+  </div>
+  <audio id="bg-music" src="/static/music.mp3" autoplay loop></audio>
+  <script>
+    const scenes = [
+      {
+        text: "Hola, soy Fer... ¿Te acuerdas del primer mensaje que te mandé? Yo sí. Fue algo como: ‘¿Te gustan los tacos? Porque yo tengo antojo... de ti 😏’.",
+        choices: [
+          { text: "Jajaja sí, me reí como loca", next: 1 },
+          { text: "Ay no Fer, qué oso 🙈", next: 1 }
+        ]
+      },
+      {
+        text: "Desde ese día nuestras risas no han parado. ¿Te acuerdas cuando me dijiste que eras sagitario y yo dije ‘soy Aries, fuego y fuego’?",
+        choices: [
+          { text: "Sí, pensé: este niño va en serio 🔥", next: 2 },
+          { text: "Sí, pero igual no me gustaban los horóscopos 😂", next: 2 }
+        ]
+      },
+      {
+        text: "Y así empezó todo. Entre tacos, audios, risas y esas pláticas hasta que uno de los dos se dormía. Como esa noche que te escribí '¿estás despierta?' y me dejaste en visto porque ya roncabas 💤",
+        choices: [
+          { text: "Jajajaja sí, me dio pena luego", next: 3 },
+          { text: "No me acuerdo pero suena a mí 😅", next: 3 }
+        ]
+      },
+      {
+        text: "Ahora, un reto para ti: ¿Dónde cenamos con tus papás por primera vez?",
+        choices: [
+          { text: "Taco Palenque", next: 4 },
+          { text: "La Estrella", next: 4 },
+          { text: "Calaca", next: 4 }
+        ]
+      },
+      {
+        text: "Sí, ¡Taco Palenque! Lo sabía. Esa noche pensé: ‘Ella es todo lo que quiero’. Y hoy, sigo pensándolo cada vez que sonríes.",
+        choices: [
+          { text: "🥹 Yo también lo sentí así...", next: 5 }
+        ]
+      },
+      {
+        text: "Cynthia:",
+        choices: [],
+        ending: true,
+        textFinal: `Eres mi risa favorita, mi persona favorita, mi compañera de tacos, de sueños y de vida.
+        Cada día contigo me enseña algo nuevo sobre el amor verdadero.
+        Si tuviera que escribir nuestra historia mil veces, todas empezarían contigo.
+        Te amo con todo lo que soy, y un poco más cada día. ❤️` 
+      }
+    ];
+
+    let current = 0;
+    const text = document.getElementById("text");
+    const choices = document.getElementById("choices");
+
+    function renderScene(index) {
+      const scene = scenes[index];
+      text.innerHTML = '';
+      choices.innerHTML = '';
+
+      if (scene.ending) {
+        text.innerHTML = `<h2>Final 💖</h2><p>${scene.textFinal}</p>`;
+        return;
+      }
+
+      let i = 0;
+      const interval = setInterval(() => {
+        text.innerHTML += scene.text.charAt(i);
+        i++;
+        if (i >= scene.text.length) clearInterval(interval);
+      }, 30);
+
+      scene.choices.forEach(choice => {
+        const btn = document.createElement("button");
+        btn.textContent = choice.text;
+        btn.onclick = () => renderScene(choice.next);
+        choices.appendChild(btn);
+      });
+    }
+
+    renderScene(current);
+  </script>
+</body>
+</html>

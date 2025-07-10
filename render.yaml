@@ -1,7 +1,7 @@
 services:
   - type: web
-    name: cynthia-y-fer
+    name: fer-y-cynthia-juego
     env: python
-    plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    startCommand: python app.py
+    plan: free
