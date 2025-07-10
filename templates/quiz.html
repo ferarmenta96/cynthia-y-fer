@@ -11,7 +11,8 @@
             <h3>{{ q.question }}</h3>
             {% for option in q.options %}
                 <label>
-                    <input type="radio" name="q{{ loop.index0 }}" value="{{ option }}" required> {{ option }}
+                    <input type="radio" name="q{{ loop.index0 }}" value="{{ option }}" required>
+                    {{ option }}
                 </label><br>
             {% endfor %}
             <br>
