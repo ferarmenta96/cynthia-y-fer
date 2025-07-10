@@ -44,4 +44,15 @@ def question(num):
         session.modified = True
         return redirect(url_for('question', num=num+1))
 
-    return render_te_
+    return render_template("question.html", question=questions[num], qnum=num+1, total=len(questions))
+
+@app.route("/result")
+def result():
+    score = 0
+    for user_ans, q in zip(session.get('answers', []), questions):
+        if user_ans == q["answer"]:
+            score += 1
+    return render_template("result.html", score=score, total=len(questions))
+
+if __name__ == "__main__":
+    app.run(debug=True)
