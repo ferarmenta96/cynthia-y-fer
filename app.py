@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
+app.secret_key = 'cynthia-y-fer'
 
 questions = [
     {
@@ -27,13 +28,20 @@ questions = [
 
 @app.route("/", methods=["GET", "POST"])
 def quiz():
-    if request.method == "POST":
-        score = 0
-        for i, q in enumerate(questions):
-            if request.form.get(f"q{i}") == q["answer"]:
-                score += 1
-        return render_template("result.html", score=score, total=len(questions))
-    return render_template("quiz.html", questions=questions)
+    session['answers'] = []
+    return redirect(url_for('question', num=0))
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+@app.route("/question/<int:num>", methods=["GET", "POST"])
+def question(num):
+    if num >= len(questions):
+        return redirect(url_for('result'))
+
+    if request.method == "POST":
+        selected = request.form.get("answer")
+        if 'answers' not in session:
+            session['answers'] = []
+        session['answers'].append(selected)
+        session.modified = True
+        return redirect(url_for('question', num=num+1))
+
+    return render_te_
